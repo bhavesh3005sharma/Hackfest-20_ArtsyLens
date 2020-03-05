@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "725232074738",
+    "firebase_url": "https://artstlens.firebaseio.com",
+    "project_id": "artstlens",
+    "storage_bucket": "artstlens.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:725232074738:android:a80001ac299a564cb9f56b",
+        "android_client_info": {
+          "package_name": "com.example.artstlens"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "725232074738-l6taro8b2nq0qkdhrlpcbkkqe6ajs4qj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.artstlens",
+            "certificate_hash": "4ce262964dc66d8217674f5d1ab30b0c9ad8f596"
+          }
+        },
+        {
+          "client_id": "725232074738-qbr4iebi7t70u5snneiv88ku6sdulvik.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQap7QCPeJxBPpwGXrT_eXtC9DjcnElmM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "725232074738-qbr4iebi7t70u5snneiv88ku6sdulvik.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
