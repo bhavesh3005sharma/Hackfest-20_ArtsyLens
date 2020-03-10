@@ -9,12 +9,10 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.FrameLayout;
-import android.widget.Toast;
 
+import com.example.artstlens.Fragments.CycleganFragment;
 import com.example.artstlens.Fragments.DrawingSheet;
 import com.example.artstlens.Fragments.HomeFragment;
 import com.example.artstlens.Fragments.Pix2PixFragment;

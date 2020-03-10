@@ -1,4 +1,4 @@
-package com.example.artstlens;
+package com.example.artstlens.LoginActivity;
 
 import android.view.View;
 

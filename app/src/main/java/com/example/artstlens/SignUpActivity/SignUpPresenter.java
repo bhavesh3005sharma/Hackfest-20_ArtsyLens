@@ -1,4 +1,4 @@
-package com.example.artstlens;
+package com.example.artstlens.SignUpActivity;
 
 import android.view.View;
 

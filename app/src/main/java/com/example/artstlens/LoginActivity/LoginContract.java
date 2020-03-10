@@ -1,8 +1,8 @@
-package com.example.artstlens;
+package com.example.artstlens.LoginActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-public class SignUpContract {
+public class LoginContract {
     public interface View{
 
         void setProgressBarVisibility(int visible);
@@ -12,7 +12,6 @@ public class SignUpContract {
         void makeToast(String message);
     }
     public interface Presenter{
-
-        void signUpUser(FirebaseAuth mAuth, String email, String password);
+        public void signIn(FirebaseAuth mAuth, String email, String password);
     }
 }

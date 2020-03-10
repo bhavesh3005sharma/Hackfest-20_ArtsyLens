@@ -1,4 +1,4 @@
-package com.example.artstlens;
+package com.example.artstlens.LoginActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,6 +10,9 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.example.artstlens.ProfileActivity;
+import com.example.artstlens.R;
+import com.example.artstlens.SignUpActivity.SignUpActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener, LoginContract.View {

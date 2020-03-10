@@ -1,4 +1,4 @@
-package com.example.artstlens;
+package com.example.artstlens.Fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import com.example.artstlens.R;
 
 public class CycleganFragment extends Fragment {
     @Nullable

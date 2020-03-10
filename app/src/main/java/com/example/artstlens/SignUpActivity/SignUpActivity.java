@@ -1,4 +1,4 @@
-package com.example.artstlens;
+package com.example.artstlens.SignUpActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +11,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.artstlens.MainActivity;
+import com.example.artstlens.ProfileActivity;
+import com.example.artstlens.R;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class SignUpActivity extends AppCompatActivity implements View.OnClickListener, SignUpContract.View {
