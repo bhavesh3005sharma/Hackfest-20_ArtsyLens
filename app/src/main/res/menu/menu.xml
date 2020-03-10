@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+        android:checkableBehavior="single">
+        <item android:title="HOME"
+            android:id="@+id/home"
+            android:icon="@drawable/home"/>
+        <item android:title="DRAWING SHEET"
+            android:id="@+id/drawing"
+            android:icon="@drawable/drawing"/>
+        <item android:title="PROFILE"
+            android:id="@+id/profile"
+            android:icon="@drawable/profile"/>
+    </group>
+
+    <item
+        android:title="IMAGE CONVERSIONS">
+
+        <menu >
+            <item android:title="PICS TO PICS"
+                android:id="@+id/pix2pix"
+                android:icon="@drawable/image_configuration"/>
+            <item android:title="CYCLEGAN"
+                android:id="@+id/cyclegan"
+                android:icon="@drawable/image_configuration"/>
+        </menu>
+
+    </item>
+
+    <item
+        android:title="SIGN OUT"
+        android:id="@+id/signOut"
+        android:icon="@drawable/logout"/>
+
+</menu>
