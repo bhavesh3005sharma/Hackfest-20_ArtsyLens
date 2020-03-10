@@ -21,7 +21,6 @@
         </activity>
         <activity android:name="com.example.artstlens.SignUpActivity.SignUpActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".ProfileActivity"/>
     </application>
 
 </manifest>

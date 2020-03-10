@@ -10,7 +10,7 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.example.artstlens.ProfileActivity;
+import com.example.artstlens.MainActivity;
 import com.example.artstlens.R;
 import com.example.artstlens.SignUpActivity.SignUpActivity;
 import com.google.firebase.auth.FirebaseAuth;
@@ -88,7 +88,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void startProfileActivity() {
-        Intent intent = new Intent(LoginActivity.this, ProfileActivity.class);
+        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }

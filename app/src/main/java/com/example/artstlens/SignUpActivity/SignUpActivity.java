@@ -12,7 +12,6 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.artstlens.MainActivity;
-import com.example.artstlens.ProfileActivity;
 import com.example.artstlens.R;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -93,7 +92,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
     @Override
     public void startProfileActivity() {
-        Intent intent = new Intent(SignUpActivity.this, ProfileActivity.class);
+        Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }
