@@ -4,34 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity"
+    tools:context=".SignUpActivity"
     android:orientation="vertical">
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Username"
-        android:id="@+id/loginUsername"/>
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:id="@+id/signupEmail"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Password"
-        android:id="@+id/loginPassword"
+        android:id="@+id/signupPassword"
         android:inputType="textPassword"/>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/loginButton"
-        android:text="Log In"/>
+        android:id="@+id/signupButton"
+        android:text="Sign Up"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="New user? Sign Up"
-        android:id="@+id/signupActivate">
+        android:text="Already a user? Login"
+        android:id="@+id/loginActivate">
     </TextView>
     <ProgressBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/loginProgressBar"
+        android:id="@+id/signupProgressBar"
         android:visibility="gone"/>
 
 </LinearLayout>
