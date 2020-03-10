@@ -22,9 +22,15 @@ public class LoginPresenter implements LoginContract.Presenter {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 mvpview.setProgressBarVisibility(View.GONE);
                 if(task.isSuccessful()){
+                    if(mAuth.getCurrentUser().isEmailVerified())
                     mvpview.startProfileActivity();
+                    else {
+                        mAuth.signOut();
+                        mvpview.makeToast("Email is not verified");
+                    }
                 }
                 else{
+                    mAuth.signOut();
                     mvpview.makeToast(task.getException().getMessage());
                 }
             }

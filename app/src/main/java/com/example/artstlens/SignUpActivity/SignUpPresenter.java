@@ -23,18 +23,23 @@ public class SignUpPresenter implements SignUpContract.Presenter{
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                mvpview.setProgressBarVisibility(View.GONE);
                 if(task.isSuccessful()){
-                    mvpview.makeToast("User registered successfully");
-                    mvpview.startProfileActivity();
+                    mAuth.getCurrentUser().sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> it) {
+                            mvpview.setProgressBarVisibility(View.GONE);
+                            mAuth.signOut();
+                            if(it.isSuccessful())
+                            mvpview.makeToast("User registered successfully\n Verification Email sent Please Verify First");
+                            else
+                                mvpview.makeToast(it.getException().getMessage());
+                        }
+                    });
                 }
                 else{
-                    if(task.getException() instanceof FirebaseAuthUserCollisionException){
-                        mvpview.makeToast("You are already registered.");
-                    }
-                    else{
-                        mvpview.makeToast(task.getException().getMessage());
-                    }
+                    mAuth.signOut();
+                    mvpview.setProgressBarVisibility(View.GONE);
+                    mvpview.makeToast(task.getException().getMessage());
                 }
             }
         });

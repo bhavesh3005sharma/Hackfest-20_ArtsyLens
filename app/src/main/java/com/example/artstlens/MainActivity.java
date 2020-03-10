@@ -9,6 +9,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -17,6 +18,7 @@ import com.example.artstlens.Fragments.DrawingSheet;
 import com.example.artstlens.Fragments.HomeFragment;
 import com.example.artstlens.Fragments.Pix2PixFragment;
 import com.example.artstlens.Fragments.ProfileFragment;
+import com.example.artstlens.LoginActivity.LoginActivity;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -83,8 +85,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialoge, int id) {
                                 FirebaseAuth.getInstance().signOut();
-//                                Intent intent = new Intent(getApplicationContext(), LOGIN_ACTIVITY.class);
-//                                startActivity(intent);
+                                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                                startActivity(intent);
                             }
                         })
                         .setNegativeButton("No", new DialogInterface.OnClickListener() {

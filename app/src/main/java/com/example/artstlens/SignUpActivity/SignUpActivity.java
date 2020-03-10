@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.artstlens.LoginActivity.LoginActivity;
 import com.example.artstlens.MainActivity;
 import com.example.artstlens.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -48,7 +49,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                 RegisterUser();
                 break;
             case R.id.loginActivate:
-                startActivity(new Intent(this, MainActivity.class));
+                startActivity(new Intent(this, LoginActivity.class));
                 break;
         }
     }
@@ -64,7 +65,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         }
 
         if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-            editTextEmail.setError("Invalid email. Please enter a valid email ID.");
+            editTextEmail.setError("Invalid email.Please enter valid email ID.");
             editTextEmail.requestFocus();
             return;
         }
@@ -87,7 +88,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
     @Override
     public void setProgressBarVisibility(int visible) {
-        progressBar.setVisibility(View.VISIBLE);
+        progressBar.setVisibility(visible);
     }
 
     @Override

@@ -9,31 +9,39 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.artstlens.ForgotPasswordActivity;
 import com.example.artstlens.MainActivity;
 import com.example.artstlens.R;
 import com.example.artstlens.SignUpActivity.SignUpActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener, LoginContract.View {
 
-    EditText editTextUsername, editTextPassword;
+    @BindView(R.id.loginUsername)
+    EditText editTextUsername;
+    @BindView(R.id.loginPassword)
+    EditText editTextPassword;
+    @BindView(R.id.loginProgressBar)
     ProgressBar progressBar;
-    FirebaseAuth mAuth;
 
+    FirebaseAuth mAuth;
     LoginContract.Presenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        ButterKnife.bind(this);
         presenter = new LoginPresenter(this);
-        editTextUsername = (EditText) findViewById(R.id.loginUsername);
-        editTextPassword = (EditText) findViewById(R.id.loginPassword);
-        progressBar = (ProgressBar) findViewById(R.id.loginProgressBar);
         mAuth = FirebaseAuth.getInstance();
 
+        findViewById(R.id.ResetPasswordText).setOnClickListener(this);
         findViewById(R.id.signupActivate).setOnClickListener(this);
         findViewById(R.id.loginButton).setOnClickListener(this);
     }
@@ -46,6 +54,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 break;
             case R.id.loginButton:
                 UserLogin();
+                break;
+            case R.id.ResetPasswordText:
+                startActivity(new Intent(LoginActivity.this, ForgotPasswordActivity.class));
+                break;
         }
     }
 
@@ -60,7 +72,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
 
         if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-            editTextUsername.setError("Invalid email. Please enter a valid email ID.");
+            editTextUsername.setError("Invalid email.Please enter valid email ID.");
             editTextUsername.requestFocus();
             return;
         }
@@ -76,10 +88,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             editTextPassword.requestFocus();
             return;
         }
-
         presenter.signIn(mAuth, email, password);
-
-
     }
 
     @Override
@@ -97,5 +106,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void makeToast(String message) {
         Toast.makeText(LoginActivity.this, message, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    protected void onStart() {
+        if(mAuth.getCurrentUser()!=null && mAuth.getCurrentUser().isEmailVerified()) {
+            startProfileActivity();
+        }
+        super.onStart();
     }
 }
