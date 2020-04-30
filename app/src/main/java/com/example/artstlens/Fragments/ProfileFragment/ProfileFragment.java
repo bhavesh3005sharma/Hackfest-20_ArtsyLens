@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -65,8 +66,8 @@ public class ProfileFragment extends Fragment implements Contract.mainView, View
         //progressBar.setVisibility(View.VISIBLE);
         //presenter.downloadProfilePic();
         save.setOnClickListener(this);
-        //profileImg.setOnClickListener(this);
-
+        profileImg.setOnClickListener(this);
+        Log.d("ProfileFrag","created");
         return view;
     }
 
@@ -91,19 +92,19 @@ public class ProfileFragment extends Fragment implements Contract.mainView, View
             case R.id.saveChanges :
                 presenter.SaveChanges(profile_name.getText().toString().trim());
                 break;
-//            case R.id.profile_image :
-//                openAlertDialogue();
-//                break;
+            case R.id.profile_image :
+                openAlertDialogue();
+                break;
             case R.id.gallery:
                 Intent intent = new Intent();
                 intent.setType("image/*");
                 intent.setAction(Intent.ACTION_GET_CONTENT);
-                startActivityForResult(intent, 1);
+                //startActivityForResult(intent, 1);
                 break;
             case R.id.camera:
                 Intent camera_intent = new Intent(MediaStore
                         .ACTION_IMAGE_CAPTURE);
-                startActivityForResult(camera_intent,2);
+                //startActivityForResult(camera_intent,2);
                 break;
             case R.id.cancel:
                 alertDialogue.dismiss();
@@ -111,21 +112,53 @@ public class ProfileFragment extends Fragment implements Contract.mainView, View
         }
     }
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-
-        if (resultCode == Activity.RESULT_OK && data != null && data.getData() != null) {
-            alertDialogue.dismiss();
-            if(requestCode == 1 ) {
-                imageUri = data.getData();
-                presenter.uploadProfilePic(imageUri);
-            }else if(requestCode == 2){
-                Bitmap photo = (Bitmap) data.getExtras().get("data");
-                profileImg.setImageBitmap(photo);
+//    @Override
+//    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        Log.d("ActivityResultPrflFrg1","entered");
+//        if (resultCode == Activity.RESULT_OK && data != null && data.getData() != null) {
+//            Log.d("ActivityResultPrflFrg2","entered");
+//            alertDialogue.dismiss();
+//            if(requestCode == 1 ) {
 //                imageUri = data.getData();
-//                Picasso.get().load(imageUri).into(imageView);
-            }
-        }
+//                presenter.uploadProfilePic(imageUri);
+//            }else if(requestCode == 2){
+//                Bitmap photo = (Bitmap) data.getExtras().get("data");
+//                profileImg.setImageBitmap(photo);
+////                imageUri = data.getData();
+////                Picasso.get().load(imageUri).into(imageView);
+//            }
+//        }
+//    }
+
+//    @Override
+//    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        Log.d("ActivityResultPrflFrg1","entered");
+//        if (resultCode == Activity.RESULT_OK && data != null && data.getData() != null) {
+//            Log.d("ActivityResultPrflFrg2","entered");
+//            alertDialogue.dismiss();
+//            if(requestCode == 1 ) {
+//                imageUri = data.getData();
+//                presenter.uploadProfilePic(imageUri);
+//            }else if(requestCode == 2){
+//                Bitmap photo = (Bitmap) data.getExtras().get("data");
+//                profileImg.setImageBitmap(photo);
+////                imageUri = data.getData();
+////                Picasso.get().load(imageUri).into(imageView);
+//            }
+//        }
+//    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        alertDialogue.dismiss();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        alertDialogue.dismiss();
     }
 
     private void openAlertDialogue() {

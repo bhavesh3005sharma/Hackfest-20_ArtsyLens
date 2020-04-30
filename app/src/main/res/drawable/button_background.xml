@@ -4,8 +4,8 @@
     android:visible="true">
 
     <size
-        android:width="30dp"
-        android:height="5dp"/>
+    android:width="30dp"
+    android:height="5dp"/>
 
     <solid
         android:width="2dp"

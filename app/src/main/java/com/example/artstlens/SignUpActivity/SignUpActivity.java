@@ -18,7 +18,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class SignUpActivity extends AppCompatActivity implements View.OnClickListener, SignUpContract.View {
 
-    EditText editTextEmail, editTextPassword;
+    EditText editTextEmail, editTextPassword ,editTextConfirmPassword;
     Button buttonSignUp;
     ProgressBar progressBar;
     SignUpPresenter presenter;
@@ -34,6 +34,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
         editTextEmail = (EditText) findViewById(R.id.signupEmail);
         editTextPassword = (EditText) findViewById(R.id.signupPassword);
+        editTextConfirmPassword = (EditText) findViewById(R.id.signupConfirmPassword);
         buttonSignUp = (Button) findViewById(R.id.signupButton);
         progressBar = (ProgressBar) findViewById(R.id.signupProgressBar);
 
@@ -57,6 +58,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     public void RegisterUser(){
         String email = editTextEmail.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();
+        String confirm_password = editTextConfirmPassword.getText().toString().trim();
 
         if(email.isEmpty()){
             editTextEmail.setError("Email is required.");
@@ -76,9 +78,21 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             return;
         }
 
+        if(confirm_password.isEmpty()){
+            editTextConfirmPassword.setError("ReEnter the Password to Confirm.");
+            editTextConfirmPassword.requestFocus();
+            return;
+        }
+
         if(password.length()<6){
             editTextPassword.setError("Please enter a password of length more than 6.");
             editTextPassword.requestFocus();
+            return;
+        }
+
+        if(!confirm_password.equals(password)){
+            editTextConfirmPassword.setError("Password Mismatch");
+            editTextConfirmPassword.requestFocus();
             return;
         }
 

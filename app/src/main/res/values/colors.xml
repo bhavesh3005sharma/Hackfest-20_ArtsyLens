@@ -3,4 +3,17 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
+
+    <color name="parrotColor">#91EC27</color>
+    <color name="orange">#FFFF6600</color>
+    <color name="yellow">#FFFFCC00</color>
+    <color name="green">#FF009900</color>
+    <color name="red">#EC2516</color>
+    <color name="greenGray">#FF009999</color>
+    <color name="blue">#FF0000FF</color>
+    <color name="violet">#FF990099</color>
+    <color name="pink">#E91E63</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="gray">#FF787878</color>
+    <color name="black">#170202</color>
 </resources>

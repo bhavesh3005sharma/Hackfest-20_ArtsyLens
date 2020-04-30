@@ -4,14 +4,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fillViewport="true">
 
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/textPassword"
@@ -28,34 +26,22 @@
             app:layout_constraintStart_toStartOf="@+id/textEmail"
             app:layout_constraintTop_toBottomOf="@+id/textEmail" />
 
-        <ImageView
-            android:id="@+id/profile_image"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_gravity="center"
-            app:layout_constraintBottom_toBottomOf="@+id/img"
-            app:layout_constraintEnd_toEndOf="@+id/img"
-            app:layout_constraintStart_toStartOf="@+id/img"
-            app:layout_constraintTop_toTopOf="@+id/img"
-            app:layout_constraintVertical_bias="0.4"
-            app:srcCompat="@drawable/profile_image_icon"/>
+    <EditText
+        android:id="@+id/textName"
+        android:layout_width="300dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/button_background2"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Name"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_image" />
 
-        <EditText
-            android:id="@+id/textName"
-            android:layout_width="300dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="100dp"
-            android:background="@drawable/button_background2"
-            android:ems="10"
-            android:gravity="center"
-            android:hint="Name"
-            android:inputType="textPersonName"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.53"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/profile_image" />
-
-        <TextView
+    <TextView
             android:id="@+id/textEmail"
             android:layout_width="300dp"
             android:layout_height="30dp"
@@ -71,15 +57,17 @@
             app:layout_constraintTop_toBottomOf="@+id/textName" />
 
         <ImageView
-            android:id="@+id/img"
+            android:id="@+id/profile_image"
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:layout_marginTop="44dp"
+            android:padding="22dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/circular_background" />
+            app:srcCompat="@drawable/profile_image_icon"
+           android:background="@drawable/circular_background" />
 
     <Button
         android:id="@+id/saveChanges"
@@ -104,8 +92,7 @@
             android:visibility="gone"
             app:layout_constraintBottom_toTopOf="@+id/textName"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/img" />
+            app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

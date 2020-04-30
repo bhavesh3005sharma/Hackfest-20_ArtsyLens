@@ -15,6 +15,7 @@ import androidx.fragment.app.FragmentManager;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import com.example.artstlens.Fragments.CycleganFragment.CycleganFragment;
 import com.example.artstlens.Fragments.DrawingSheet.DrawingSheet;
@@ -40,6 +41,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        Log.d("MainActivity","created");
         Intent intent = getIntent();
         int check = intent.getIntExtra("check",1);
         switch (check){
@@ -67,8 +69,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        Log.d("ActivityResultMain1","entered");
         Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.profile);
         fragment.onActivityResult(requestCode, resultCode, data);
+        Log.d("ActivityResultMain2","entered");
     }
 
 

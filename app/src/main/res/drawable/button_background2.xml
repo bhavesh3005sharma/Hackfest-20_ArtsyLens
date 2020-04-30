@@ -6,15 +6,12 @@
         android:width="300dp"
         android:height="40dp"/>
 
-    <solid
-        android:color="#F3EBEB"/>
-
     <corners
         android:radius="20dp"/>
 
     <stroke
-        android:color="#48F34F"
-        android:width="5dp"/>
+        android:color="@color/colorAccent"
+        android:width="4dp"/>
 
 
 

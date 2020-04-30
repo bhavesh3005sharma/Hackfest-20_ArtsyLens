@@ -1,17 +1,217 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.artstlens.Fragments.DrawingSheet.DrawingSheet">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_height="match_parent"
+    <com.example.artstlens.Fragments.DrawingSheet.PaintViewClass
+        android:id="@+id/drawing"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#FBFAFA"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.321" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:theme="@style/AppTheme.AppBarOverlay"/>
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="10dp"
+        android:background="#9369DF"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
+        <ImageButton
+            android:id="@+id/new_btn"
+            android:layout_width="50dp"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="5dp"
+            android:contentDescription="New Drawing"
+            android:background="#D9D3D3"
+            android:src="@drawable/new_drawing" />
 
-    <include layout="@layout/content_main" />
+        <ImageButton
+            android:id="@+id/draw_btn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="5dp"
+            android:contentDescription="Brush"
+            android:background="#D9D3D3"
+            android:src="@drawable/drawing" />
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+        <ImageButton
+            android:id="@+id/erase_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="5dp"
+            android:contentDescription="Eraser"
+            android:background="#D9D3D3"
+            android:src="@drawable/erase" />
+
+        <ImageButton
+            android:id="@+id/save_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="5dp"
+            android:contentDescription="Save"
+            android:background="#D9D3D3"
+            android:src="@drawable/ic_save_black_24dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/paint_colors"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_gravity="bottom"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:background="#9369DF"
+        android:gravity="center"
+        android:padding="2dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageButton
+            android:id="@+id/color1"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_margin="2dp"
+            android:src="@drawable/paint"
+            android:background="@color/colorPrimary"
+            android:tag="#6200EE"
+            android:outlineProvider="bounds" />
+
+        <ImageButton
+            android:id="@+id/color2"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/paint"
+            android:layout_margin="2dp"
+            android:background="@color/colorAccent"
+            android:outlineProvider="bounds" />
+
+        <ImageButton
+            android:id="@+id/color3"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/paint"
+            android:outlineProvider="bounds"
+            android:layout_margin="2dp"
+            android:background="#91EC27" />
+
+        <ImageButton
+            android:id="@+id/color4"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_margin="2dp"
+            android:src="@drawable/paint"
+            android:outlineProvider="bounds"
+            android:background="#FFFF6600" />
+
+        <ImageButton
+            android:id="@+id/color5"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_margin="2dp"
+            android:src="@drawable/paint"
+            android:outlineProvider="bounds"
+            android:background="#FFFFCC00" />
+
+        <ImageButton
+            android:id="@+id/color6"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/paint"
+            android:outlineProvider="bounds"
+            android:layout_margin="2dp"
+            android:background="#FF009900" />
+
+        <ImageButton
+            android:id="@+id/color7"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_margin="2dp"
+            android:src="@drawable/paint"
+            android:outlineProvider="bounds"
+            android:background="#EC2516" />
+
+        <ImageButton
+            android:id="@+id/color8"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_margin="2dp"
+            android:src="@drawable/paint"
+            android:outlineProvider="bounds"
+            android:background="#FF009999" />
+
+        <ImageButton
+            android:id="@+id/color9"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_margin="2dp"
+            android:src="@drawable/paint"
+            android:outlineProvider="bounds"
+            android:background="#FF0000FF" />
+
+        <ImageButton
+            android:id="@+id/color10"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_margin="2dp"
+            android:src="@drawable/paint"
+            android:outlineProvider="bounds"
+            android:background="#FF990099" />
+
+        <ImageButton
+            android:id="@+id/color11"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_margin="2dp"
+            android:src="@drawable/paint"
+            android:outlineProvider="bounds"
+            android:background="#E91E63" />
+
+        <ImageButton
+            android:id="@+id/color12"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_margin="2dp"
+            android:src="@drawable/paint"
+            android:outlineProvider="bounds"
+            android:background="#FFFFFFFF" />
+
+        <ImageButton
+            android:id="@+id/color13"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_margin="2dp"
+            android:background="#FF787878"
+            android:src="@drawable/paint"
+            android:outlineProvider="bounds"/>
+
+        <ImageButton
+            android:id="@+id/color14"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_margin="2dp"
+            android:src="@drawable/paint"
+            android:outlineProvider="bounds"
+            android:background="#170202" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

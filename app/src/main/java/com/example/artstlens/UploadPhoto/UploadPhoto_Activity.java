@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.webkit.MimeTypeMap;
@@ -79,15 +80,10 @@ public class UploadPhoto_Activity extends AppCompatActivity implements Contract.
                 startActivityForResult(intent, 1);
                 break;
             case 2 :
-                Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                //Uri uri  = Uri.parse("file:///sdcard/photo.jpg");
-                String root = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).toString() + "propic.jpg";
-                Uri uri = Uri.parse(root);
-                i.putExtra(MediaStore.EXTRA_OUTPUT, uri);
-                startActivityForResult(i, 2);
-//                Intent camera_intent = new Intent(MediaStore
-//                    .ACTION_IMAGE_CAPTURE);
-//                startActivityForResult(camera_intent,2);
+                Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+                    startActivityForResult(takePictureIntent, 2);
+                }
                 break;
         }
 
@@ -101,17 +97,15 @@ public class UploadPhoto_Activity extends AppCompatActivity implements Contract.
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
-        if (resultCode == RESULT_OK && data != null && data.getData() != null) {
-            alertDialogue.dismiss();
-            if(requestCode == 1 ) {
+        alertDialogue.dismiss();
+        if (resultCode == RESULT_OK && data != null) {
+            if(requestCode == 1 && data.getData()!=null) {
                 imageUri = data.getData();
                 Picasso.get().load(imageUri).into(imageView);
-            }else if(requestCode == 2){
-                    Bitmap photo = (Bitmap) data.getExtras().getParcelable("data");
-                    imageView.setImageBitmap(photo);
-//                imageUri = data.getData();
-//                Picasso.get().load(imageUri).into(imageView);
+            }else if(requestCode == 2 && data.getExtras()!=null){
+                    Bundle extras = data.getExtras();
+                    Bitmap imageBitmap = (Bitmap) extras.get("data");
+                    imageView.setImageBitmap(imageBitmap);
             }
         }
     }

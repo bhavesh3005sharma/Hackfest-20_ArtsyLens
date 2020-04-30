@@ -8,6 +8,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,6 +25,8 @@ public class ForgotPasswordActivity extends AppCompatActivity {
     Button resetPassword;
     @BindView(R.id.email)
     EditText editTextEmail;
+    @BindView(R.id.progressBarResetPassword)
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,9 +55,11 @@ public class ForgotPasswordActivity extends AppCompatActivity {
     }
 
     private void ResetPassword(String email) {
+        progressBar.setVisibility(View.VISIBLE);
         FirebaseAuth.getInstance().sendPasswordResetEmail(email).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
+                progressBar.setVisibility(View.GONE);
                 if(task.isSuccessful())
                     Toast.makeText(ForgotPasswordActivity.this,"Reset Password Email Sent",Toast.LENGTH_LONG).show();
                 else

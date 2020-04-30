@@ -36,6 +36,7 @@ public class Pix2PixFragment extends Fragment implements Contract.mainView, Adap
     Contract.presenter presenter;
     @BindView(R.id.progressBar4)
     ProgressBar progressBar;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
